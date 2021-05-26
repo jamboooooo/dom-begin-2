@@ -12,43 +12,50 @@
         </ul>
     </div>
     <div id="copyright">(c) INTOCODE</div>
+    <div>
+        <button id="addH1">Add h1</button>
+        <button id="addLink">Add link</button>
+        <button id="color">Bg-color body</button>
+        <button id="addList">Add list</button>
+        <button id="remove">remove copy</button>
+    </div>
     <script>
         const divMain = document.getElementById('main')
 
-        const addH1 = () => {
+        const h1Btn = document.getElementById('addH1');
+        const addLinkBtn = document.getElementById('addLink');
+        const color = document.getElementById('color');
+        const addListBtn = document.getElementById('addList')
+        const removeBtn = document.getElementById('remove')
+
+        h1Btn.addEventListener('click', () => {
             const h1 = document.createElement('h1');
             h1.textContent = 'Работа с DOM';
             divMain.before(h1);
-        }
+        })
 
-        const addLink = () => {
+        addLinkBtn.addEventListener('click', () => {
             const a = document.createElement('a');
             a.href = 'https://learn.javascript.ru/dom-nodes';
             a.textContent = 'Link on DOM'
             divMain.append(a);
-        }
+        })
 
-        const bgBody = (color) => {
-            document.body.style.backgroundColor = color;
-        }
+        color.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'blue';
+        })
 
-        const addList = (text) => {
+        addListBtn.addEventListener('click', () => {
             const li = document.createElement('li');
-            li.textContent = text;
+            li.textContent = 'hello';
             const ul = document.getElementById('list');
             ul.append(li);
-        }
+        })
 
-        const removeCopy = () => {
+        removeBtn.addEventListener('click', () => {
             const copy = document.getElementById('copyright');
             copy.remove();
-        }
-
-        addH1();
-        addLink();
-        addList('new element');
-        bgBody('blue');
-        removeCopy();
+        })
     </script>
 </body>
 
